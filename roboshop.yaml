@@ -35,6 +35,7 @@
       ttl: 1
       type: A
       value: "{{ item.instances[0].private_ip_address }}"
+      overwrite: true
     loop: "{{ ec2_output.results }}" 
 
   - name: create r53 record for frontend
@@ -44,6 +45,7 @@
       record: "{{ domain_name}}"
       ttl: 1
       type: A
+      overwrite: true
       value: "{{ item.instances[0].public_ip_address }}"
     loop: "{{ ec2_output.results }}"   
     when: item.item == "frontend"
