@@ -9,7 +9,7 @@
     amazon.aws.ec2_instance:
      instance_type: t3.micro
      name: "roboshop-{{ item }}"
-     image_id: "{{ imaged_id }}"
+     image_id: "{{ image_id }}"
      region: us-east-1
      security_groups:
      - "roboshop-{{item}}"
